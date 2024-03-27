@@ -27,7 +27,7 @@ function App() {
     <Route path='/signup' element={<UserLogoutAuth><Signup /></UserLogoutAuth>} />
     <Route path='/profile' element={<UserLoginAuth><Profile/></UserLoginAuth>} />
     <Route path='/admin' element={<AdminLogoutAuth><AdminLogin/></AdminLogoutAuth>} />
-    <Route path='/admin/home' element={<AdminHome/>} />
+    <Route path='/admin/home' element={<AdminLogoutAuth><AdminHome/></AdminLogoutAuth>} />
     <Route path='/admin/edit/:id' element={<Edit/>} />
     <Route path='/admin/adduser' element={<Adduser/>} />
 

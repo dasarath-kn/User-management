@@ -7,7 +7,4 @@ user_Router.post('/signup',signup)
 user_Router.post('/imageupload',upload.single('image'),imageupload)
 
 
-
-
-
 export default user_Router
