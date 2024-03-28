@@ -8,8 +8,8 @@ import { setUserDetails } from '../../Store/Slices/Userslice'
 
 const Login = () => {
     let navigate =useNavigate()
-	let [email,setEmail]=useState('dasarathkn99@gmail.com')
-	let [password,setPassword] =useState('123456')
+	let [email,setEmail]=useState('')
+	let [password,setPassword] =useState('')
 	let [err,setErr]=useState('')
 	const emailPattern =  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	const dispatch = useDispatch()
@@ -31,7 +31,7 @@ const Login = () => {
 						name:res.userdetails.name,
 						email:res.userdetails.email,
 						is_Admin:res.userdetails.is_Admin,
-						image:"",
+						image:res.userdetails.image,
 						phone:res.userdetails.phone,
 					}))
 					navigate('/')

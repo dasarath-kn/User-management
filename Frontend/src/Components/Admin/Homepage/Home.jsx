@@ -23,9 +23,9 @@ const Home = () => {
     try {
       console.log(userId);
       deleteUser(userId).then((res)=>{
-        const userdata = users.filter((user)=>{userId=!user.id})
-      
+        const userdata = users.filter((user)=>user._id !=userId)
         setUsers(userdata)
+        setSearchuser(userdata)
       })
       
     } catch (error) {
@@ -33,8 +33,7 @@ const Home = () => {
     }
   }
  const logout =()=>{
-  console.log(";jkfsdjls");
-  localStorage.removeItem('admintoken')
+  localStorage.removeItem('Admintoken')
   navigate('/admin')
 
  }

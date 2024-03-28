@@ -57,6 +57,7 @@ try {
 
 export const imageupload =async(req,res)=>{
 try {
+    console.log(req.file);
     console.log(req.file.filename,req.body.id)
     const id = req.body.id
      const upload = await User.updateOne({_id:id},{$set:{image:req.file.filename}})

@@ -2,6 +2,8 @@ import  express  from "express";
 import { login,listUsers,editUsers,deleteUser,loadUser,edituserdata,searchdata } from "../Controller/adminController.js";
  const admin_Router =express.Router()
 
+
+
  admin_Router.post('/login',login)
  admin_Router.get('/list',listUsers)
  admin_Router.get('/edit',editUsers)

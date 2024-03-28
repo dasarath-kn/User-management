@@ -48,8 +48,9 @@ export const deleteUser = async(req,res)=>{
  try {
     const id =req.params.userId
     const userdata = await User.deleteOne({_id:id})
+    const data =await User.find();
     if(userdata){
-        res.json({status:true})
+        res.json({status:true,data})
     }else{
         res.json({status:false,error:"user not found"})
     }
