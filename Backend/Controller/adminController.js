@@ -4,7 +4,6 @@ import  jwt  from 'jsonwebtoken';
 export const login =async(req,res)=>{
     try {
         const userdata =await User.findOne({email:req.body.email})
-        console.log(userdata);
         if(userdata.isAdmin){
             const secretKey = userdata._id.toString();
 

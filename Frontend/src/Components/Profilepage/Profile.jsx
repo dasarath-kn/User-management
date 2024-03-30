@@ -50,21 +50,8 @@ const Profile = () => {
         isAdmin: response.userData.isAdmin,
       })
     );
-    console.log(userdata,"selector");
-    // uploadpicture(datas).then((res)=>{
-    //   console.log(res,"new datra");
-    //   dispatch(
-    //     setUserDetails({
-    //       id: res.userData._id,
-    //       name: res.userData.name,
-    //       email: res.userData.email,
-    //       image: res.userData.image,
-    //       phone: res.userData.phone,
-    //       isAdmin: res.userData.isAdmin,
-    //     })
-    //   );
 
-    // })
+    
   }
 	let emailpattern= /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
@@ -102,7 +89,7 @@ const Profile = () => {
               <div className="card">
                 <div className="card-body">
                   <div className="d-flex flex-column align-items-center text-center">
-                    <img src={userdata.image ? `http://10.4.5.206:7070/${userdata.image}`: "https://bootdey.com/img/Content/avatar/avatar7.png"} alt="Admin" className="rounded-circle" width="150"/>
+                    <img src={userdata.image ? ` http://10.4.5.206:7070/${userdata.image}`: "https://bootdey.com/img/Content/avatar/avatar7.png"} alt="Admin" className="rounded-circle" width="150"/>
                     <div className="mt-3">
                       <h4>{userdata.name}</h4>
                       <  input type="file" onChange={(e)=>setData({...data,image:e.target.files[0]})} />

@@ -3,12 +3,10 @@ import  jwt  from 'jsonwebtoken';
 export const login =async(req,res)=>{
     try {
         let userdetails = await User.findOne({email:req.body.email})
-        console.log(userdetails);
        if(userdetails){
         if(userdetails.password ==req.body.password){
            const secretKey = userdetails._id.toString();
          const token = jwt.sign({userId:userdetails._id},secretKey,{expiresIn:'30d'})
-       console.log(token);
          res.json({token,userdetails,status:true})
        }else{
         res.json({status:false,error:"User not found"})
@@ -25,7 +23,6 @@ export const login =async(req,res)=>{
 
 export const signup =async(req,res)=>{
 try {
-    console.log(req.body)
     const userdata = new User({
         name:req.body.name,
         email:req.body.email,
@@ -57,8 +54,6 @@ try {
 
 export const imageupload =async(req,res)=>{
 try {
-    console.log(req.file);
-    console.log(req.file.filename,req.body.id)
     const id = req.body.id
      const upload = await User.updateOne({_id:id},{$set:{image:req.file.filename}})
     const userData = await User.findOne({_id:id})
