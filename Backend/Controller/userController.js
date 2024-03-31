@@ -3,6 +3,7 @@ import  jwt  from 'jsonwebtoken';
 export const login =async(req,res)=>{
     try {
         let userdetails = await User.findOne({email:req.body.email})
+        console.log(userdetails);
        if(userdetails){
         if(userdetails.password ==req.body.password){
            const secretKey = userdetails._id.toString();
