@@ -62,6 +62,7 @@ export const loadUser = async(req,res)=>{
     try {
         console.log(req.params.id);
         const userData =await User.findOne({_id:req.params.id})
+        console.log(userData);
         if(userData){
             res.json({status:true,userData})
         }else{
@@ -75,6 +76,7 @@ export const loadUser = async(req,res)=>{
 export const edituserdata =async(req,res)=>{
 try {
     const userdata =await User.updateOne({email:req.body.email},{$set:{name:req.body.name,email:req.body.email,phone:req.body.phone}})
+   console.log(userdata);
     if(userdata){
         res.json({status:true,userdata})
     }else{
