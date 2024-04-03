@@ -89,7 +89,7 @@ const Profile = () => {
               <div className="card">
                 <div className="card-body">
                   <div className="d-flex flex-column align-items-center text-center">
-                    <img src={userdata.image ? ` http://10.4.5.206:7070/${userdata.image}`: "https://bootdey.com/img/Content/avatar/avatar7.png"} alt="Admin" className="rounded-circle" width="150"/>
+                    <img src={userdata.image ? `http://10.4.5.206:7070/${userdata.image}`: "https://bootdey.com/img/Content/avatar/avatar7.png"} alt="Admin" className="rounded-circle" width="150"/>
                     <div className="mt-3">
                       <h4>{userdata.name}</h4>
                       <  input type="file" onChange={(e)=>setData({...data,image:e.target.files[0]})} />
