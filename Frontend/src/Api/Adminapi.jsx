@@ -45,7 +45,6 @@ export const deleteUser = async(userid)=>{
 
 export const loaduser =async(id)=>{
     try {
-        console.log(id+"fsdjf");
         const loaddata = await adminapi.get(`/admin/loaduser/${id}`)
         return loaddata.data
     } catch (error) {

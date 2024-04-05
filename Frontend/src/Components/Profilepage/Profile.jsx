@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setUserDetails } from '../../Store/Slices/Userslice'
 import { useNavigate } from 'react-router-dom'
 import { logoutDetails } from '../../Store/Slices/Userslice';
+import { useredited } from '../../Api/Adminapi'
 
 const Profile = () => {
   const Navigate =useNavigate()
@@ -13,7 +14,6 @@ const Profile = () => {
 
   let userdata =useSelector((state)=>state.user)
   let [name,setName]=useState(userdata.name)
-  let [email,setEmail]=useState(userdata.email)
   let [phone,setPhone]=useState(userdata.phone)
   let [err,setErr]=useState('')
   const logout =()=>{
@@ -65,17 +65,17 @@ const Profile = () => {
         return setErr("Name should contain atleast 4 characters");
      }else if(phone.length<10 || phone.length>10 ){
          return setErr("Phone number should contain 10 digits")
-     }else if(!emailpattern.test(email)){
-         return setErr("Invalid email format")
      }
       dispatch(setUserDetails({
         id:userdata.id,
         name:name,
-        email:email,
+        email:userdata.email,
         image:userdata.image,
         phone:phone,
         isAdmin:userdata.isAdmin
       }))
+      let data ={name:name,phone:phone,email:userdata.email}
+      useredited(data)
     }
   }
   return (
@@ -160,14 +160,7 @@ const Profile = () => {
                                 <input type="text" className="form-control col-input" value={name} onChange={(e)=>setName(e.target.value)} />
                             </div>
                         </div>
-                        <div className="row mb-3">
-                            <div className="col-sm-3">
-                                <h6 className="mb-0">Email</h6>
-                            </div>
-                            <div className="col-sm-9 text-secondary col-input">
-                                <input type="text" className="form-control col-input" value={email} onChange={(e)=>setEmail(e.target.value)} />
-                            </div>
-                        </div>
+                       
                         <div className="row mb-3">
                             <div className="col-sm-3">
                                 <h6 className="mb-0">Phone</h6>
