@@ -77,7 +77,7 @@ export const edituserdata =async(req,res)=>{
 try {
     console.log(req.body.email
         ,"sdfs");
-    const userdata =await User.updateOne({email:req.body.email},{$set:{name:req.body.name,email:req.body.email,phone:req.body.phone}})
+    const userdata =await User.updateOne({email:req.body.email},{$set:{name:req.body.name,phone:req.body.phone}})
    console.log(userdata);
     if(userdata){
         res.json({status:true,userdata})

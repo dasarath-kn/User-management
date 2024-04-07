@@ -26,7 +26,6 @@ const Edit = () => {
       userdetails()
     },[])
 
-	let emailpattern= /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
     const handlesubmit =(e)=>{
         e.preventDefault();
@@ -34,8 +33,6 @@ const Edit = () => {
            return setErr("Name should contain atleast 4 characters");
         }else if(loaddata.phone.length<10 || loaddata.phone.length>10 ){
             return setErr("Phone number should contain 10 digits")
-        }else if(!emailpattern.test(loaddata.email)){
-            return setErr("Invalid email format")
         }
         useredited(loaddata).then((res)=>{
         navigate('/admin/home');
@@ -59,14 +56,7 @@ const Edit = () => {
                                 <input type="text" className="form-control col-input" value={loaddata.name} onChange={(e)=>setLoaddata({...loaddata, name:e.target.value})}   />
                             </div>
                         </div>
-                        <div className="row mb-3">
-                            <div className="col-sm-3">
-                                <h6 className="mb-0">Email</h6>
-                            </div>
-                            <div className="col-sm-9 text-secondary col-input">
-                                <input type="text" className="form-control col-input" value={loaddata.email} onChange={(e)=>setLoaddata({...loaddata,email:e.target.value})} />
-                            </div>
-                        </div>
+                       
                         <div className="row mb-3">
                             <div className="col-sm-3">
                                 <h6 className="mb-0">Phone</h6>
