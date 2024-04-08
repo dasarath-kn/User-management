@@ -6,7 +6,6 @@ const userapi =axios.create({
  export const login =async(logindata)=>{
     try {
         
-        console.log(logindata);
         const values = await userapi.post('/login',logindata)
         return values.data
     } catch (error) {
@@ -26,7 +25,6 @@ export const signup =async(signup)=>{
 
 export  const uploadpicture =async(data)=>{
     try {
-        console.log(data.id);
         const formData = new FormData()
         formData.append("image",data.image)
         formData.append("id",data.id)
