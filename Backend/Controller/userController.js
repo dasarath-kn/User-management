@@ -3,7 +3,6 @@ import  jwt  from 'jsonwebtoken';
 export const login =async(req,res)=>{
     try {
         let userdetails = await User.findOne({email:req.body.email})
-        console.log(userdetails);
        if(userdetails){
         if(userdetails.password ==req.body.password){
            const secretKey = userdetails._id.toString();
@@ -33,7 +32,6 @@ try {
     })
     let existingdata = await User.findOne({email:req.body.email})
     if(existingdata){
-        console.log("already exist");
         res.json({status:false,error:"User already exist"})
     }else{
         if(req.body.password == req.body.confirmPassword){
