@@ -2,13 +2,11 @@ import React, { useEffect, useState } from 'react'
 import './Home.css'
 import {listusers,deleteUser,searchUser} from '../../../Api/Adminapi'
 import { useNavigate } from 'react-router-dom'
-
 const Home = () => {
   let navigate =useNavigate()
   let[users,setUsers]=useState([]);
   let [search,setSearch]=useState('')
   let [searchuser,setSearchuser]=useState([])
-
   useEffect(()=>{
     listusers().then((res)=>{
       console.log(res.userdata);
@@ -17,7 +15,6 @@ const Home = () => {
     })
    
   },[])
-
 
   const deleteId =async(userId)=>{
     try {

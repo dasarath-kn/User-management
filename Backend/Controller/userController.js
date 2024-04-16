@@ -7,6 +7,7 @@ export const login =async(req,res)=>{
         if(userdetails.password ==req.body.password){
            const secretKey = userdetails._id.toString();
          const token = jwt.sign({userId:userdetails._id},secretKey,{expiresIn:'30d'})
+         console.log(token);
          res.json({token,userdetails,status:true})
        }else{
         res.json({status:false,error:"User not found"})

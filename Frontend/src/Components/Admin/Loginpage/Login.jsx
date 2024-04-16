@@ -2,14 +2,13 @@ import React, { useState } from 'react'
 import './Login.css'
 import { login } from '../../../Api/Adminapi'
 import { useNavigate } from 'react-router-dom'
-
 const Login = () => {
+
   const navigate = useNavigate()
   let [email,setEmail]=useState('');
   let [password,setPassword] =useState('');
   let [err,setErr]=useState('')
   const emailPattern =  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
   const handleSubmit =async(e)=>{
     e.preventDefault()
    try {
@@ -22,7 +21,7 @@ const Login = () => {
       if(values.status){
         if(values.status){
           localStorage.setItem('Admintoken',values.adminToken)
-          navigate('/admin/home')
+           navigate('/admin/home')
        
 
       }else{

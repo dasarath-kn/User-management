@@ -4,13 +4,15 @@ import  jwt  from 'jsonwebtoken';
 export const login =async(req,res)=>{
     try {
         const userdata =await User.findOne({email:req.body.email})
+        const data = await User.find({isAdmin:false})
+
         if(userdata.isAdmin){
             const secretKey = userdata._id.toString();
 
             const adminToken = jwt.sign({userId:userdata._id},secretKey,{expiresIn:'30d'})
             console.log(adminToken);
             if(userdata.password ==req.body.password){
-                res.json({userdata,status:true,adminToken})
+                res.json({userdata,status:true,adminToken,data})
             }
         }else{
             res.json({status:false,error:"Invalid admin"})

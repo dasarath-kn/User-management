@@ -8,7 +8,7 @@ import { logoutDetails } from '../../Store/Slices/Userslice';
 import { useredited } from '../../Api/Adminapi'
 
 const Profile = () => {
-  const Navigate =useNavigate()
+  const navigate =useNavigate()
   const dispatch =useDispatch()
   let [status,setStatus]=useState(true)
 
@@ -21,7 +21,7 @@ const Profile = () => {
     dispatch(
       logoutDetails()
     )
-  Navigate('/login')
+  navigate('/login')
   }
   const intialstate ={
     id:userdata.id || '',
